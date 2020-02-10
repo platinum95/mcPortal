@@ -1,0 +1,19 @@
+[Unit]
+Description=Minecraft Server
+After=network.target
+
+[Service]
+User=minecraft
+Nice=1
+KillMode=none
+SuccessExitStatus=0 1
+ProtectHome=true
+ProtectSystem=full
+PrivateDevices=true
+NoNewPriveleges=true
+WorkingDirectory=/opt/minecraft/server/TheReckoning_mk1
+ExecStart=/opt/minecraft/server/TheReckoning_mk1/ServerStart.sh
+ExecStop=/usr/local/bin/mcrcon -H 127.0.0.1 -P 25575 -p <Put password here> stop
+
+[Install]
+WantedBy=multi-user.target
